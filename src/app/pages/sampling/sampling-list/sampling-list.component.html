@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-12">
+            <div class="w-100 d-flex justify-content-between align-items-center flex-nowrap">
+                <h3 class="text-center my-5">Listado de muestras</h3>
+                <div>
+                  <a [routerLink]="['form']" class="btn btn-outline-success me-2">Crear Muestra</a>
+                  <button class="btn btn-outline-info" (click)="exportTable()">Exportar a Excel</button>
+                </div>
+            </div>
+            <table class="table" id="excel-table">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">muestra</th>
+                      <th scope="col">fecha</th>
+                      <th scope="col" class="w-25">Jornada</th>
+                      <th scope="col" class="w-25">Descripción</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of listSampling; let i = index">
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{item.muestra}}</td>
+                      <td>{{item.fecha}}</td>
+                      <td>{{item.jornada}}</td>
+                      <td>{{item.descripcon}}</td>
+                      <td>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a [routerLink]="['/sampling', item._id]" routerLinkActive="router-link-active"  class="btn btn-outline-info me-1">Ver</a> 
+                            <button (click)="redirect(item._id)" type="button" class="btn btn-outline-warning">Editar</button>
+                        </div>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

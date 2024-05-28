@@ -1,0 +1,61 @@
+<div class="login">
+    <div class="login__content">
+        <div class="login__img">
+            <img src="./assets/img/img-login.svg" alt="">
+        </div>
+
+        <div class="loginRender" *ngIf="loginRender; else registerRender">
+            <div class="login__forms">
+                <form [formGroup]="formLogin" (ngSubmit)="ingresar()" class="login__registre" id="login-in">
+                    <h1 class="login__title">Ingresar</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="email" formControlName="email" placeholder="Corereo" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        <input type="password" formControlName="password" placeholder="Contraseña" class="login__input">
+                    </div>
+
+                    <button type="submit" class="login__button">Ingresar</button>
+
+                    <div>
+                        <span class="login__account">No tengo cuenta </span>
+                        <span (click)="loginRender = false" class="login__signin" id="sign-up">Registrarme</span>
+                    </div>
+                </form>
+            </div>
+
+            </div>
+            <ng-template #registerRender>
+                <div class="login__forms">
+                <form [formGroup]="formRegister" class="login__create" id="login-up" (ngSubmit)="createUser()">
+                    <h1 class="login__title">Crear cuenta</h1>
+                
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="text" formControlName="user" placeholder="Usuario" class="login__input">
+                    </div>
+                
+                    <div class="login__box">
+                        <i class='bx bx-at login__icon'></i>
+                        <input type="text" placeholder="Email" formControlName="email" class="login__input">
+                    </div>
+                
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        <input type="password" placeholder="Contraseña" formControlName="password" class="login__input">
+                    </div>
+                
+                    <button href="#" class="login__button">Registrarme</button>
+                    <div>
+                        <span class="login__account">Ya tengo cuenta </span>
+                        <span (click)="loginRender = true" class="login__signin" id="sign-up">Ingresaer</span>
+                    </div>
+                </form>
+            </div>
+            </ng-template>
+    </div>
+</div>

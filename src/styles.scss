@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+  /*===== Colores =====*/
+  --first-color: #9D4BFF;
+  --first-color-dark: #23004D;
+  --first-color-light: #A49EAC;
+  --first-color-lighten: #F2F2F2;
+
+  /*===== Font and typography =====*/
+  --body-font: 'Open Sans', sans-serif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+body {
+  height: 100vh;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.toaster {
+  right: 1rem;
+  bottom: 1rem
+}
+
+.h-100vh {
+  height: 100vh
+}
+
+.h-90vh {
+  height: 90vh
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.toast {
+  left: auto !important;
+  width: 350px !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

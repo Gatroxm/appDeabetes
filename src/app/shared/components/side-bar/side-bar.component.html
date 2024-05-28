@@ -1,0 +1,31 @@
+
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100vh">
+    <span
+      class="w-100 justify-content-between px-2 d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <span class="fs-6">Carbohydrate Calculator</span>
+    </span>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link link-dark" aria-current="page">
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/calculator" class="nav-link link-dark" aria-current="page">
+          Calculadora
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/sampling" class="nav-link link-dark" aria-current="page">
+          Toma de muestras
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <span (click)="logout()" class="d-flex align-items-center link-dark text-decoration-none pointer">
+        <strong>Cerrar Sessión</strong>
+      </span>
+    </div>
+  </div>

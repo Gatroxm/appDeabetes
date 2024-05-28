@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-3 p-0">
+      <app-side-bar></app-side-bar>
+    </div>
+    <div class="col-12 col-lg-9 p-0 h-90vh">
+      <app-top-bar class=""></app-top-bar>
+      <main class="w-100 h-100 p-3 overflow-auto bg-gray_light ">
+        <router-outlet />
+      </main>
+    </div>
+  </div>
+</div>
+<app-toaster></app-toaster>

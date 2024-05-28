@@ -1,0 +1,39 @@
+<div class="container-fluid" style="height: 96vh;">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h6 class="text-center my-5">Toma de muestra diaria</h6>
+            <form class="my-5" [formGroup]="formSampling" (ngSubmit)="send()">
+                <div class="mb-3">
+                    <label class="form-label"> Glucometria</label>
+                    <input type="text" class="form-control" formControlName="muestra" placeholder="Ej: 30">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"> Fecha</label>
+                    <input type="date" class="form-control" formControlName="fecha">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"> Hora</label>
+                    <input type="time" class="form-control" formControlName="hora">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"> Description</label>
+                    <textarea name="descripcon" id="descripcon" class="form-control"
+                        formControlName="descripcon"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"> Jornada</label>
+                    <select name="jornada" class="form-control" id="jornada">
+                        <option value="">Seleccione Jornada</option>
+                        <option value="Ayunas">Ayunas</option>
+                        <option value="Antes de Almuerzo">Antes de Almuerzo</option>
+                        <option value="2 horas despues de almuerzo">2 horas despues de almuerzo</option>
+                        <option value="Antes de cenar">Antes de cenar</option>
+                        <option value="2 horas despues de cenar">2 horas despues de cenar</option>
+                        <option value="3 AM">3 AM</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-success" type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

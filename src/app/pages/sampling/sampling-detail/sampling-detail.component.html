@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 92vh;">
+    <div class="card" style="width: 25rem;" *ngIf="samplig">
+        <div class="card-body">
+            <h5 class="card-title" >Muestra tomada {{samplig.fecha}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted" >Glucometria: {{samplig.muestra}}</h6>
+            <ul class="list-group">
+                <li class="list-group-item">Hora: {{samplig.hora}}</li>
+                <li class="list-group-item">Jornada: {{samplig.jornada}}</li>
+            </ul>
+            <p class="card-text" *ngIf="samplig.descripcon ! ''"><strong>Descripción: </strong>{{samplig.descripcon}}</p>
+        </div>
+    </div>
+</div>

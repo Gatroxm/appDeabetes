@@ -1,0 +1,24 @@
+<div class="container-fluid" style="height: 96vh;">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h6 class="text-center my-5">Calcula las unidade de insulina / Gramos de Carbohidratos</h6>
+            <form [formGroup]="formCalculator" (ngSubmit)="calculator()">
+                <div class="mb-3">
+                    <label class="form-label"> Cantidad en (G) de carbohidratos</label>
+                    <input type="text" class="form-control" formControlName="gramos" placeholder="Ej: 30">
+                    <div class="form-text">Recuerde que esta es la porción que va aingerir ya sea (Papa, Arroz...)</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Relacón DHO : Insulina</label>
+                    <input type="text" class="form-control" formControlName="quatityForUnit" placeholder="Ex: 4.32">
+                    <div class="form-text">Representa cuántos gramos de carbohidratos están cubiertos o se desechan por una 1 unidad de insulina. </div>
+                </div>
+                <button class="btn btn-outline-success" type="submit">Calcular</button>
+            </form>
+
+            <div *ngIf="result">
+                <p>La cantidad de unidades que debe ponerce para {{formCalculator.getRawValue().gramos}}G es de {{total | number: '1.0-0'}}mg/dl</p>    
+            </div>
+        </div>
+    </div>
+</div>
