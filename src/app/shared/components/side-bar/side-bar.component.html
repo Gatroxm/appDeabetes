@@ -1,60 +1,95 @@
-
-  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100vh">
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100vh">
+  <span
+    class="w-100 justifi-mobile gap-3 h-22 align-self-center px-2 d-flex mb-3 mb-md-0 me-md-auto link-dark"
+  >
+    <app-icon type="title" *ngIf="!showIcons"></app-icon>
+    <span class="fs-6 oculto-mobile" *ngIf="!showIcons"
+      >Hola, {{ user.name }}</span
+    >
+  </span>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a
+        routerLink="/user"
+        class="nav-link d-flex justifi-mobile gap-3 align-self-center link-dark"
+        aria-current="page"
+        [ngClass]="{ 'justify-content-center': showIcons }"
+      >
+        <app-icon type="user"></app-icon>
+        <span *ngIf="!showIcons" class="oculto-mobile"> My Perfil </span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/"
+        class="nav-link d-flex justifi-mobile gap-3 align-self-center link-dark"
+        aria-current="page"
+        [ngClass]="{ 'justify-content-center': showIcons }"
+      >
+        <app-icon type="home"></app-icon>
+        <span *ngIf="!showIcons" class="oculto-mobile"> Home </span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/calculator"
+        class="nav-link d-flex justifi-mobile gap-3 align-self-center link-dark"
+        aria-current="page"
+        [ngClass]="{ 'justify-content-center': showIcons }"
+      >
+        <app-icon type="calculator"></app-icon>
+        <span *ngIf="!showIcons" class="oculto-mobile"> Calculadora </span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/sampling"
+        class="nav-link d-flex justifi-mobile gap-3 align-self-center link-dark"
+        aria-current="page"
+        [ngClass]="{ 'justify-content-center': showIcons }"
+      >
+        <app-icon type="sampling"></app-icon>
+        <span *ngIf="!showIcons" class="oculto-mobile"> Toma de muestras </span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/quiz"
+        class="nav-link d-flex justifi-mobile gap-3 align-self-center link-dark"
+        aria-current="page"
+        [ngClass]="{ 'justify-content-center': showIcons }"
+      >
+        <app-icon type="quiz"></app-icon>
+        <span *ngIf="!showIcons" class="oculto-mobile"> Examenes </span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/news"
+        class="nav-link d-flex justifi-mobile gap-3 align-self-center link-dark"
+        aria-current="page"
+        [ngClass]="{ 'justify-content-center': showIcons }"
+      >
+        <app-icon type="news"></app-icon>
+        <span *ngIf="!showIcons" class="oculto-mobile"> Noticias </span>
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <div class="dropdown">
     <span
-      class="w-100 justifi-mobile gap-3 h-22 align-self-center px-2 d-flex mb-3 mb-md-0 me-md-auto link-dark" >
-      <app-icon type="title" *ngIf="!showIcons"></app-icon>
-      <span class="fs-6 oculto-mobile" *ngIf="!showIcons">Hola, {{user.name}}</span>
+      (click)="logout()"
+      class="d-flex align-items-center link-dark text-decoration-none pointer"
+      [ngClass]="{ 'justify-content-center': showIcons }"
+    >
+      <div
+        class="d-flex justifi-mobile gap-3 align-self-center"
+        [ngClass]="{ 'justify-content-center': showIcons }"
+      >
+        <app-icon type="exit"></app-icon>
+        <strong class="oculto-mobile" *ngIf="!showIcons">Cerrar Sessión</strong>
+      </div>
     </span>
-    <hr >
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item ">
-        <a routerLink="/user" class="nav-link d-flex justifi-mobile  gap-3 align-self-center link-dark" aria-current="page" [ngClass]="{'justify-content-center': showIcons}">
-          <app-icon type="user"></app-icon>
-          <span *ngIf="!showIcons" class="oculto-mobile">
-            My Perfil
-          </span>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a routerLink="/" class="nav-link d-flex justifi-mobile  gap-3 align-self-center link-dark" aria-current="page" [ngClass]="{'justify-content-center': showIcons}">
-          <app-icon type="home"></app-icon>
-          <span *ngIf="!showIcons" class="oculto-mobile">
-            Home
-          </span>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a routerLink="/calculator" class="nav-link d-flex  justifi-mobile gap-3 align-self-center link-dark" aria-current="page" [ngClass]="{'justify-content-center': showIcons}">
-          <app-icon type="calculator"></app-icon>
-          <span *ngIf="!showIcons" class="oculto-mobile">
-            Calculadora
-          </span>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a routerLink="/sampling" class="nav-link d-flex  justifi-mobile gap-3 align-self-center link-dark" aria-current="page" [ngClass]="{'justify-content-center': showIcons}">
-          <app-icon type="sampling"></app-icon>
-          <span *ngIf="!showIcons" class="oculto-mobile">
-            Toma de muestras
-          </span>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a routerLink="/news" class="nav-link d-flex  justifi-mobile gap-3 align-self-center link-dark" aria-current="page" [ngClass]="{'justify-content-center': showIcons}">
-          <app-icon type="news"></app-icon>
-          <span *ngIf="!showIcons" class="oculto-mobile">
-            Noticias
-          </span>
-        </a>
-      </li>
-    </ul>
-    <hr>
-    <div class="dropdown">
-      <span (click)="logout()" class="d-flex align-items-center link-dark text-decoration-none pointer" [ngClass]="{'justify-content-center': showIcons}">
-        <div class="d-flex  justifi-mobile gap-3 align-self-center" [ngClass]="{'justify-content-center': showIcons}">
-          <app-icon type="exit"></app-icon>
-          <strong class="oculto-mobile" *ngIf="!showIcons">Cerrar Sessión</strong>
-        </div>
-      </span>
-    </div>
   </div>
+</div>

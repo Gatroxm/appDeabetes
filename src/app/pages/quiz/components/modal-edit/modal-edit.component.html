@@ -1,0 +1,42 @@
+<div class="modalEditQuiz" *ngIf="showModal">
+  <div class="moda-content-edit">
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Examen</h4>
+      <button type="button" class="close" aria-label="Close" (click)="closed()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formulario">
+        <div class="form-group mb-3">
+          <label for="name">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            placeholder="Nombre del Examen"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="value">Valor</label>
+          <input
+            type="text"
+            class="form-control"
+            id="value"
+            formControlName="value"
+            placeholder="Valor del Examen"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closed()">
+        Cerrar
+      </button>
+      <button type="button" class="btn btn-primary" (click)="closed()">
+        Guardar
+      </button>
+    </div>
+  </div>
+</div>

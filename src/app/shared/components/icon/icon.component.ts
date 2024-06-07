@@ -6,9 +6,19 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './icon.component.html',
-  styleUrl: './icon.component.scss'
+  styleUrl: './icon.component.scss',
 })
 export class IconComponent {
-  @Input() type:string | 'home' | 'calculator' | 'sampling' | 'news' | 'menu' | 'title' | 'exit' = 'home'
-
+  @Input() type:
+    | string
+    | 'home'
+    | 'edit'
+    | 'delete'
+    | 'quiz'
+    | 'calculator'
+    | 'sampling'
+    | 'news'
+    | 'menu'
+    | 'title'
+    | 'exit' = 'home';
 }

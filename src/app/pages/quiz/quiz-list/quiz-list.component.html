@@ -1,0 +1,52 @@
+<div class="conatiner-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Listado de Examenes Médicos</h5>
+          <div class="card-text table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Valor de resultado</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let quiz of quizList">
+                  <td>{{ quiz.name }}</td>
+                  <td>{{ quiz.value }}</td>
+                  <td>{{ quiz.date | date : "dd/MM/yyyy" }}</td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <button
+                        (click)="edit(quiz)"
+                        class="btn btn-outline-warning text-wite"
+                      >
+                        <app-icon type="edit"></app-icon>
+                      </button>
+                      <button
+                        (click)="deleteQuiz(quiz)"
+                        class="btn btn-outline-danger"
+                      >
+                        <app-icon type="delete"></app-icon>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-edit
+  (closeModal)="closeModal($event)"
+  *ngIf="showModal"
+  [quiz]="quiz"
+  [showModal]="showModal"
+></app-modal-edit>

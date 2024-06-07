@@ -8,6 +8,7 @@ import { DashboardComponent } from '@components/dashboard/dashboard.component';
 import { NewsService } from '@services/news.service';
 import { UserService } from '@services/user.service';
 import { ImagesService } from '@services/images.service';
+import { QuizService } from '@services/quiz.service';
 
 const routes: Routes = [
   {
@@ -40,6 +41,11 @@ const routes: Routes = [
         path: 'user',
         providers: [UserService, SamplingService],
         loadChildren: () => import('@pages/user/user.routes'),
+      },
+      {
+        path: 'quiz',
+        providers: [QuizService],
+        loadChildren: () => import('@pages/quiz/quiz.routes'),
       },
     ],
   },
