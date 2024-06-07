@@ -1,27 +1,25 @@
-# AppControlFront
+# AppControlFront - Aplicación de Control de Diabetes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+## Descripción
 
-## Development server
+AppControlFront es una aplicación diseñada para ayudar a las personas con diabetes a monitorear y gestionar su condición. La aplicación permite a los usuarios registrar sus niveles de glucosa, administrar su medicación, y hacer un seguimiento de su dieta y actividad física.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Características
 
-## Code scaffolding
+- **Registro de Glucosa**: Permite a los usuarios registrar sus niveles de glucosa en sangre en diferentes momentos del día.
+- **Administración de Medicación**: Los usuarios pueden llevar un registro de la medicación que toman y recibir recordatorios para su administración.
+- **Seguimiento de la Dieta**: Funcionalidad para registrar las comidas y controlar la ingesta de carbohidratos.
+- **Actividad Física**: Permite registrar y monitorizar la actividad física diaria.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tecnologías Utilizadas
 
-## Build
+- **Frontend**: Construido con Angular.
+- **Backend**: Implementado en Node.js con Express.
+- **Base de Datos**: Utiliza MongoDB para el almacenamiento de datos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalación
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Gatroxm/appDeabetes.git
+   ```
