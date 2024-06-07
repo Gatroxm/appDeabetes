@@ -1,0 +1,9 @@
+<div class="col-12 mb-3" >
+    <div class="d-flex justify-content-between">
+      <h1>{{title}}</h1>
+      <div *ngIf="role === 'ADMIN_ROLE';">
+        <a [routerLink]="[url]" class="btn btn-outline-success">{{btnName}}</a>
+      </div>
+
+    </div>
+  </div>

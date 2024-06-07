@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <app-banner btnName="Cancelar" url="../" title="Crear noticia"></app-banner>
+        <div class="col-12">
+            <form [formGroup]="formNew" (ngSubmit)="guardar()">
+                <div class="form-group mb-3">
+                    <Label for="title">Titulo</Label>
+                    <input type="text" id="title" class="form-control" placeholder="Tutilo de la noticia"
+                        formControlName="title">
+                </div>
+                <div class="form-group mb-3">
+                    <Label for="author">Autor / Referencia</Label>
+                    <input type="text" id="author" class="form-control" placeholder="Tutilo de la noticia"
+                        formControlName="author">
+                </div>
+                <div class="form-group mb-3">
+                    <Label for="exerpt">Texto Corto</Label>
+                    <textarea name="exerpt" id="exerpt" class="form-control" formControlName="exerpt"
+                        placeholder="Texto Corto"></textarea>
+
+                </div>
+                <div class="form-group mb-3">
+                    <label for="content">Contenido</label>
+                    <angular-editor id="content" [placeholder]="'Contenido de la noticia'"
+                        formControlName="content"></angular-editor>
+                </div>
+                <div class="form-group mb-3">
+                    <button class="btn btn-outline-info" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

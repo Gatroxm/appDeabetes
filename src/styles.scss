@@ -51,10 +51,31 @@ img {
   display: block;
 }
 
-.toast {
+.toast-alert {
   left: auto !important;
   width: 350px !important;
 }
 
+.icon-content{
+  width: 20px !important;
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: center;
+    height: 30px;
+}
+.oculto-mobile{
+  @media (max-width:420px) {
+    display: none;
+  }
+}
+.justifi-mobile{
+  @media (max-width:420px) {
+    justify-content: center;
+  }
+}
+.h-22{
+  height: 22px
+}
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

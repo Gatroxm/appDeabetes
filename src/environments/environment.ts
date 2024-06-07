@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    apiUrl: 'https://gatroxm.github.io/AppDeabetesServer/'
-  };
+  production: false,
+  apiUrl: 'http://localhost:3000/api/',
+};

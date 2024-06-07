@@ -7,16 +7,26 @@ const routes: Routes = [
     {
         path: '',
         title: 'Muestras',
+        data:{
+            title:'Listado de muestras',
+            background:'bg-warning'
+        },
         loadComponent:() => SamplingListComponent
     },
     {
         path:'form',
-        title: 'Creación Muestra',
+        data:{
+            title:'Creación Muestra',
+            background:'bg-warning'
+        },
         loadComponent: () => SamplingCreateComponent
     },
     {
         path:':id',
-        title: 'Detalle de Muestra',
+        data:{
+            title:'Detalle de Muestra',
+            background:'bg-warning'
+        },
         loadComponent:() => SamplingDetailComponent
     },
     

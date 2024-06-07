@@ -1,9 +1,13 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12 col-lg-3 p-0">
-      <app-side-bar></app-side-bar>
+  <div class="row justify-content-end">
+    <div class="col-3 p-0 fixed-top" [ngClass]="{'dropMenu col-lg-1':show, 'col-lg-3': !show}">
+      <app-side-bar [showIcons]="show"></app-side-bar>
+      <button class="buton-bar oculto-mobile" [ngClass]="{'center-button': show}" (click)="showTogleMenu()">
+        <app-icon type="title" *ngIf="show"></app-icon>
+        <app-icon type="menu" *ngIf="!show"></app-icon>
+      </button>
     </div>
-    <div class="col-12 col-lg-9 p-0 h-90vh">
+    <div class="col-9  p-0 h-90vh" [ngClass]="{'col-lg-9':!show, 'col-lg-11':show}">
       <app-top-bar class=""></app-top-bar>
       <main class="w-100 h-100 p-3 overflow-auto bg-gray_light ">
         <router-outlet />

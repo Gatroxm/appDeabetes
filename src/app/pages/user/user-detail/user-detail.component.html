@@ -1,0 +1,146 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between mb-5">
+        <h2>Editar Usuario</h2>
+        <button class="btn btn-outline-warning">Listado de Usuarios</button>
+      </div>
+    </div>
+    <div class="col-12 my-5" *ngIf="viewChart">
+      <div style="display: block">
+        <h2>Glucometrias</h2>
+        <ngx-charts-bar-vertical
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="single"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [legendPosition]="legendPosition"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          [legendTitle]="legendTitle"
+          [wrapTicks]="true"
+        >
+        </ngx-charts-bar-vertical>
+      </div>
+    </div>
+    <div class="col-12 col-lg-9 mt-5">
+      <form [formGroup]="formUser" (ngSubmit)="saved()">
+        <div class="form-group mb-3">
+          <label for="user">Nombre</label>
+          <input
+            type="text"
+            id="user"
+            class="form-control"
+            placeholder="Nombre"
+            formControlName="name"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="telefono">Teléfono</label>
+          <input
+            type="text"
+            id="telefono"
+            class="form-control"
+            placeholder="Teléfono"
+            formControlName="telefono"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="peso">Peso</label>
+          <input
+            type="text"
+            id="peso"
+            class="form-control"
+            placeholder="Peso en (KG)"
+            formControlName="peso"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="sexo">Sexo</label>
+          <select
+            name="sexo"
+            id="sexo"
+            class="form-control"
+            formControlName="sexo"
+          >
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="******"
+            formControlName="password"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="password2">Repetir Contraseña</label>
+          <input
+            type="password"
+            id="password2"
+            class="form-control"
+            placeholder="******"
+            formControlName="password2"
+          />
+        </div>
+        <div class="form-group mb-3" *ngIf="user.role === 'ADMIN_ROLE'">
+          <label for="email">Correo electrónico</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="******"
+            formControlName="email"
+          />
+        </div>
+        <div class="form-group mb-3" *ngIf="user.role === 'ADMIN_ROLE'">
+          <label for="role">Rol</label>
+          <select
+            name="role"
+            id="role"
+            class="form-control"
+            formControlName="role"
+          >
+            <option value="">Sleccione Rol</option>
+            <option value="ADMIN_ROLE">Administrador</option>
+            <option value="USER_ROLE">Usuario</option>
+          </select>
+        </div>
+        <div class="form-group mb-3 d-flex justify-content-between">
+          <button type="submit" class="btn btn-success">Enviar</button>
+          <label for="file" class="btn btn-primary my-2">
+            Cambiar Inagen
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 col-lg-3 mt-5">
+      <input
+        class="d-none"
+        type="file"
+        name="file"
+        id="file"
+        (change)="cambiarImagen($event)"
+      />
+      <div *ngIf="user.img !== ''; else ElseImage">
+        <app-view-image type="usuario" [imagen]="imagen"></app-view-image>
+      </div>
+      <ng-template #ElseImage>
+        <label for="file" class="btn btn-primary"> Selecciona archivo</label>
+      </ng-template>
+
+      <h6 class="mt-2 text-center">
+        <strong>{{ user.name | uppercase }}</strong>
+      </h6>
+    </div>
+  </div>
+</div>

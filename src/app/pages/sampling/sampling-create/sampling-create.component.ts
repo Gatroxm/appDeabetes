@@ -50,7 +50,6 @@ export class SamplingCreateComponent implements OnInit {
   }
 
   send() {
-    console.log(this.formSampling.getRawValue())
     this.formSampling.markAllAsTouched();
     if (this.formSampling.invalid) return;
 

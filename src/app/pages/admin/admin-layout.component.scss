@@ -7,3 +7,18 @@
     overflow-y: hidden;
     justify-content: space-between;
 }
+.buton-bar{
+    background: transparent;
+    border-radius: 6px;
+    position: absolute;
+    top: 0.6rem;
+    right: 1rem;
+    padding: 3px 9px 0;
+    &.center-button{
+        right: 0;
+        left: 0;
+        margin: auto;
+        display: inline-block;
+        width: 40px;
+    }
+}

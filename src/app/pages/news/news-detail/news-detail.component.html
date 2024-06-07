@@ -1,0 +1,13 @@
+<div class="container-fluid" *ngIf="newResponse">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <h1 class="text-center my-5">{{newResponse.title}}</h1>
+            <img [src]="newResponse.image" [alt]="newResponse.title" *ngIf="newResponse.image">
+            <div class="d-flex justify-content-between mb-3">
+                <span>{{newResponse.date | date}}</span>
+                <span>{{newResponse.author}}</span>
+            </div>
+            <div [innerHTML]="newResponse.content"></div>
+        </div>
+    </div>
+</div>

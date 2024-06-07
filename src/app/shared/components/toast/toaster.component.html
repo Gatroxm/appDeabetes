@@ -1,5 +1,5 @@
 <div
-  class="d-flex position-fixed p-3  z-index-3  fixed-bottom flex-column  toast  gap-4 overflow-y-auto rounded-2 "
+  class="d-flex position-fixed p-3  z-index-3  fixed-bottom flex-column  toast-alert  gap-4 overflow-y-auto rounded-2 "
   style="scrollbar-gutter: stable">
   <ng-container *ngFor="let toast of toastList; index as i">
     <app-toast [toast]="toast" (disposeEvent)="dispose(i)"></app-toast>

@@ -4,7 +4,10 @@ import { CalculatorComponent } from './calculator/calculator.component';
 const routes: Routes = [
     {
         path: '',
-        title: 'Calculadora',
+        data:{
+            titulo:'Caluladora',
+            background:'bg-success'
+        },
         loadComponent:() => CalculatorComponent
     }
 ];

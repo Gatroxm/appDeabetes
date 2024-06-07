@@ -12,6 +12,7 @@ export class LoginService {
   #apiUrl = environment.apiUrl;
 
   private token: string | null = null;
+  role!: string;
 
   constructor(private http: HttpClient, private router: Router,) { }
 
@@ -47,10 +48,11 @@ export class LoginService {
     return this.token;
   }
 
-  saveSessionStorage(user: ReadUserDto) {
-
+  saveSessionStorage(user: any) {
+    this.role = user.usuario.role
+    sessionStorage.setItem('_id', user.id);
     sessionStorage.setItem('user', JSON.stringify(user));
-    sessionStorage.setItem('role', JSON.stringify(user.role));
+    sessionStorage.setItem('role', JSON.stringify(user.usuario.role));
   }
 
   logOut() {
@@ -61,6 +63,10 @@ export class LoginService {
   }
   isAuthenticated(): boolean {
     return !!this.getToken();
+  }
+
+  getRole(){
+    return this.role;
   }
 
 }

@@ -4,6 +4,7 @@ import { RouterLink, Router } from '@angular/router';
 import { LoginService } from '@services/login.service';
 import { ReadUserDto } from 'src/app/shared/models/user.model';
 import { NgIf } from '@angular/common';
+import { UserService } from '@services/user.service';
 
 @Component({
   selector: 'app-log-in',
@@ -19,6 +20,7 @@ export default class LogInComponent implements OnInit {
   #logInServices = inject(LoginService);
   #router = inject(Router);
   #fb = inject(FormBuilder);
+  #userServices = inject(UserService)
 
   formLogin = this.#fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
@@ -27,13 +29,12 @@ export default class LogInComponent implements OnInit {
 
   formRegister = this.#fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
-    user: ['', [Validators.required]],
+    name: ['', [Validators.required]],
     password: ['', [Validators.required]]
 
   });
 
   ngOnInit(): void {
-
     if (this.#logInServices.isAuthenticated()) {
       this.#router.navigate(['/']);
     }
@@ -42,15 +43,30 @@ export default class LogInComponent implements OnInit {
   ingresar() {
     this.formLogin.markAllAsTouched();
     if (this.formLogin.invalid) return;
-    this.#logInServices.login(this.formLogin.getRawValue()).subscribe((resp: ReadUserDto) => {
-      localStorage.setItem('email', this.formLogin.getRawValue().email || '');
+    this.logIn(this.formLogin.getRawValue());
+  }
+
+  logIn(data:any){
+    this.#logInServices.login(data).subscribe((resp: ReadUserDto) => {
+      localStorage.setItem('email', data.email || '');
       this.#router.navigate(['/']);
     })
   }
-
   createUser(){
     this.formRegister.markAllAsTouched();
     if (this.formRegister.invalid) return;
-    console.log(this.formRegister.getRawValue())
+    this.#userServices.createUser(this.formRegister.getRawValue()).subscribe((resp:any) =>{
+      if(resp.ok){
+        console.log({
+          "email":resp.usuario.email,
+          "password": this.formRegister.getRawValue().password
+        })
+        this.logIn({
+          email:resp.usuario.email,
+          password: this.formRegister.getRawValue().password
+        });
+      }
+    })
+
   }
 }
