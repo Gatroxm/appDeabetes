@@ -1,0 +1,49 @@
+<form [formGroup]="formDocis" (submit)="calculator()">
+  <div class="form-froup mb-3">
+    <label class="form-label">Peso (Kg)</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="peso"
+      placeholder="Ej: 70"
+    />
+    <div class="form-text">
+      Recuerde que este es el peso total de la persona en ayunas y en
+      kilogramos.
+    </div>
+  </div>
+  <div class="form-froup mb-3">
+    <label class="form-label">Carbohidratos Diarios (G)</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="carboidratosDiarios"
+      placeholder="Ej: 30"
+    />
+    <div class="form-text">
+      Recuerde que este es el total de carbohidratos que se consume diariamente.
+    </div>
+  </div>
+
+  <div class="form-froup mb-3">
+    <label class="form-label">Relacón DHO : Insulina</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="quatityForUnit"
+      placeholder="Ex: 4.32"
+    />
+    <div class="form-text">
+      Representa cuántos gramos de carbohidratos están cubiertos o se desechan
+      por una 1 unidad de insulina.
+    </div>
+  </div>
+  <button class="btn btn-outline-success" type="submit">Calcular</button>
+  <ul>
+    <li>Insulina Larga duración es de: {{ insulina_basal[0] }}mg/dl</li>
+    <li>
+      Insulina Antes de cada comida :
+      {{ this.insulina_antes_de_comer | number : "1.0-0" }}mg/dl
+    </li>
+  </ul>
+</form>

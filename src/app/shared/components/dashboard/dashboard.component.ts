@@ -17,11 +17,10 @@ import { NgIf } from '@angular/common';
 export class DashboardComponent implements OnInit {
   #loginService = inject(LoginService);
   user!: User;
-  #SamplingService = inject(SamplingService);
 
   samplings: any[] = [];
   ngOnInit(): void {
     this.user = this.#loginService.currentUserExists().usuario;
-    console.log(this.user);
+    // console.log(this.user);
   }
 }

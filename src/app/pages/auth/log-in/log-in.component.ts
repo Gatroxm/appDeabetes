@@ -11,32 +11,36 @@ import { UserService } from '@services/user.service';
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule, NgIf],
   templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.scss'
+  styleUrl: './log-in.component.scss',
 })
 export default class LogInComponent implements OnInit {
-
-  loginRender=true
+  loginRender = true;
 
   #logInServices = inject(LoginService);
   #router = inject(Router);
   #fb = inject(FormBuilder);
-  #userServices = inject(UserService)
+  #userServices = inject(UserService);
 
   formLogin = this.#fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]]
+    password: ['', [Validators.required]],
   });
 
   formRegister = this.#fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
     name: ['', [Validators.required]],
-    password: ['', [Validators.required]]
-
+    password: ['', [Validators.required]],
   });
 
   ngOnInit(): void {
     if (this.#logInServices.isAuthenticated()) {
       this.#router.navigate(['/']);
+    }
+    if (sessionStorage.length > 0) {
+      sessionStorage.clear();
+    }
+    if (localStorage.length > 0) {
+      localStorage.clear();
     }
   }
 
@@ -46,27 +50,28 @@ export default class LogInComponent implements OnInit {
     this.logIn(this.formLogin.getRawValue());
   }
 
-  logIn(data:any){
+  logIn(data: any) {
     this.#logInServices.login(data).subscribe((resp: ReadUserDto) => {
       localStorage.setItem('email', data.email || '');
       this.#router.navigate(['/']);
-    })
+    });
   }
-  createUser(){
+  createUser() {
     this.formRegister.markAllAsTouched();
     if (this.formRegister.invalid) return;
-    this.#userServices.createUser(this.formRegister.getRawValue()).subscribe((resp:any) =>{
-      if(resp.ok){
-        console.log({
-          "email":resp.usuario.email,
-          "password": this.formRegister.getRawValue().password
-        })
-        this.logIn({
-          email:resp.usuario.email,
-          password: this.formRegister.getRawValue().password
-        });
-      }
-    })
-
+    this.#userServices
+      .createUser(this.formRegister.getRawValue())
+      .subscribe((resp: any) => {
+        if (resp.ok) {
+          console.log({
+            email: resp.usuario.email,
+            password: this.formRegister.getRawValue().password,
+          });
+          this.logIn({
+            email: resp.usuario.email,
+            password: this.formRegister.getRawValue().password,
+          });
+        }
+      });
   }
 }

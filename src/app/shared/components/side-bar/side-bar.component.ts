@@ -11,16 +11,21 @@ import { LoginService } from '@services/login.service';
   templateUrl: './side-bar.component.html',
 })
 export class SideBarComponent implements OnInit {
-  
-  @Input() showIcons:boolean = false;
-  
+  @Input() showIcons: boolean = false;
+
   #logInServices = inject(LoginService);
+  #router = inject(Router);
   show = false;
-  user!:any;
+  user!: any;
   ngOnInit(): void {
+    // console.log(this.#logInServices.currentUserExists());
+    if (this.#logInServices.currentUserExists() !== null) {
       this.user = this.#logInServices.currentUserExists().usuario;
+    } else {
+      this.#router.navigate(['/login']);
+    }
   }
-  logout(){
+  logout() {
     this.#logInServices.logOut();
   }
 }
